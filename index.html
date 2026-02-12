@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Publications, book chapters, and poster presentations" />
+  <title>Dr. Manish Mishra — Publications</title>
+  <style>
+    :root{
+      --bg:#0b1220; --card:#111a2b; --muted:#9fb0d0; --text:#e9f0ff;
+      --accent:#7aa7ff; --accent2:#7dffda; --border:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text); background:radial-gradient(1200px 700px at 20% 0%, rgba(122,167,255,.25), transparent 60%),
+                         radial-gradient(1000px 650px at 90% 10%, rgba(125,255,218,.18), transparent 55%),
+                         var(--bg);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:52px 20px 28px; max-width:1040px; margin:0 auto;
+    }
+    .topbar{
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+    }
+    .title h1{margin:0; font-size:28px; letter-spacing:.2px}
+    .title p{margin:8px 0 0; color:var(--muted); max-width:70ch}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chip{
+      border:1px solid var(--border); background:rgba(255,255,255,.03);
+      color:var(--text); padding:8px 10px; border-radius:999px; font-size:13px;
+    }
+    .chip strong{color:var(--accent2)}
+    main{max-width:1040px; margin:0 auto; padding:0 20px 60px}
+    .controls{
+      display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+      padding:14px; border:1px solid var(--border); background:rgba(255,255,255,.03);
+      border-radius:16px; margin:18px 0 18px;
+    }
+    .controls .left{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    input[type="search"]{
+      width:min(520px, 92vw);
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border); background:rgba(0,0,0,.25); color:var(--text);
+      outline:none;
+    }
+    select, button{
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border); background:rgba(0,0,0,.25); color:var(--text);
+    }
+    button{cursor:pointer}
+    button:hover{border-color:rgba(122,167,255,.55)}
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns:1fr;
+    }
+    @media (min-width: 880px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+    section{
+      border:1px solid var(--border); background:rgba(255,255,255,.03);
+      border-radius:18px; padding:18px;
+    }
+    section h2{margin:0 0 8px; font-size:18px}
+    section p.note{margin:0 0 12px; color:var(--muted); font-size:14px}
+    .item{
+      padding:12px 12px; border:1px solid var(--border);
+      border-radius:14px; background:rgba(0,0,0,.18);
+      margin:10px 0;
+    }
+    .item:last-child{margin-bottom:0}
+    .meta{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+      color:var(--muted); font-size:13px; margin-top:6px;
+    }
+    .badge{
+      font-size:12px; padding:4px 8px; border-radius:999px;
+      background:rgba(122,167,255,.12); border:1px solid rgba(122,167,255,.28);
+      color:var(--text);
+    }
+    .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .links a{
+      font-size:13px; padding:6px 10px; border-radius:12px;
+      border:1px solid var(--border); background:rgba(255,255,255,.03);
+    }
+    .links a:hover{border-color:rgba(125,255,218,.55)}
+    footer{
+      max-width:1040px; margin:0 auto; padding:18px 20px 40px; color:var(--muted);
+      border-top:1px solid var(--border);
+    }
+    .small{font-size:13px}
+    .count{color:var(--muted); font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="title">
+        <h1>Dr. Manish Mishra</h1>
+        <p>
+          Publications, book chapters, and poster presentations.
+          (Replace this line with your short research summary—1–2 sentences.)
+        </p>
+
+        <div class="chips">
+          <span class="chip"><strong>Google Scholar</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+          <span class="chip"><strong>ORCID</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+          <span class="chip"><strong>Email</strong>: <a href="mailto:your.email@example.com">your.email@example.com</a></span>
+          <span class="chip"><strong>CV</strong>: <a href="#" target="_blank" rel="noreferrer">PDF</a></span>
+        </div>
+      </div>
+      <div class="count" id="resultCount"></div>
+    </div>
+
+    <div class="controls">
+      <div class="left">
+        <input id="q" type="search" placeholder="Search title, authors, journal, conference, keywords…" />
+        <select id="type">
+          <option value="all">All types</option>
+          <option value="paper">Publications</option>
+          <option value="chapter">Book chapters</option>
+          <option value="poster">Posters</option>
+        </select>
+        <select id="sort">
+          <option value="year_desc">Sort: Year (new → old)</option>
+          <option value="year_asc">Sort: Year (old → new)</option>
+          <option value="title_asc">Sort: Title (A → Z)</option>
+        </select>
+      </div>
+      <div class="right">
+        <button id="clear">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section>
+        <h2>Publications</h2>
+        <p class="note">Peer-reviewed articles, preprints, and invited papers.</p>
+        <div class="list" data-section="paper"></div>
+      </section>
+
+      <section>
+        <h2>Book Chapters</h2>
+        <p class="note">Chapters in edited volumes and handbooks.</p>
+        <div class="list" data-section="chapter"></div>
+      </section>
+
+      <section style="grid-column: 1 / -1;">
+        <h2>Poster Presentations</h2>
+        <p class="note">Conference posters and abstracts.</p>
+        <div class="list" data-section="poster"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="small">
+      Last updated: <span id="lastUpdated"></span> •
+      Tip: keep this page concise—link out to DOI/PubMed/Publisher, and optionally a PDF when permitted.
+    </div>
+  </footer>
+
+  <script>
+    // ========= EDIT YOUR CONTENT HERE =========
+    // Add items to the DATA array. Keep "type" as: paper | chapter | poster
+    const DATA = [
+      // --- Publications (examples) ---
+      {
+        type: "paper",
+        year: 2025,
+        title: "Example publication title goes here",
+        authors: "Mishra M., Coauthor A., Coauthor B.",
+        venue: "Journal Name",
+        extra: "Vol 12(3):123–134",
+        keywords: ["immunology", "cell culture"],
+        links: [
+          { label: "DOI", url: "https://doi.org/xxxx" },
+          { label: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/xxxx" }
+        ]
+      },
+
+      // --- Book chapters (examples) ---
+      {
+        type: "chapter",
+        year: 2023,
+        title: "Example book chapter title",
+        authors: "Mishra M.",
+        venue: "In: Handbook of Something (Ed. X. Y.)",
+        extra: "Publisher, City",
+        keywords: ["molecular biology"],
+        links: [
+          { label: "Publisher", url: "https://example.com" }
+        ]
+      },
+
+      // --- Posters (examples) ---
+      {
+        type: "poster",
+        year: 2022,
+        title: "Example poster: a new screening concept for X",
+        authors: "Mishra M., Coauthor C.",
+        venue: "Conference Name, Location",
+        extra: "Poster #P-123 (Abstract)",
+        keywords: ["screening", "biochemistry"],
+        links: [
+          { label: "Abstract", url: "https://example.com/abstract" }
+          // Add PDF link only if you have rights to share it
+          // { label: "Poster PDF", url: "https://example.com/poster.pdf" }
+        ]
+      }
+    ];
+    // =========================================
+
+    const elQ = document.getElementById("q");
+    const elType = document.getElementById("type");
+    const elSort = document.getElementById("sort");
+    const elClear = document.getElementById("clear");
+    const elCount = document.getElementById("resultCount");
+
+    function normalize(s){ return (s||"").toString().toLowerCase(); }
+
+    function scoreMatch(item, q){
+      if(!q) return 1;
+      const hay = normalize([
+        item.title, item.authors, item.venue, item.extra, (item.keywords||[]).join(" ")
+      ].join(" "));
+      let score = 0;
+      q.split(/\s+/).filter(Boolean).forEach(tok=>{
+        if(hay.includes(tok)) score += 1;
+      });
+      return score;
+    }
+
+    function sortItems(items, mode){
+      const copy = [...items];
+      if(mode === "year_desc") copy.sort((a,b)=>(b.year||0)-(a.year||0));
+      if(mode === "year_asc") copy.sort((a,b)=>(a.year||0)-(b.year||0));
+      if(mode === "title_asc") copy.sort((a,b)=> (a.title||"").localeCompare(b.title||""));
+      return copy;
+    }
+
+    function render(){
+      const q = normalize(elQ.value.trim());
+      const typeFilter = elType.value;
+      const sortMode = elSort.value;
+
+      // Filter + rank
+      let items = DATA
+        .filter(it => (typeFilter === "all" ? true : it.type === typeFilter))
+        .map(it => ({...it, _score: scoreMatch(it, q)}))
+        .filter(it => it._score > 0);
+
+      // Sort with stable ranking: higher score first when searching
+      items = sortItems(items, sortMode);
+      if(q){
+        items.sort((a,b)=> (b._score - a._score) || ((b.year||0)-(a.year||0)));
+      }
+
+      // Clear sections
+      document.querySelectorAll(".list").forEach(div => div.innerHTML = "");
+
+      // Render into appropriate section lists
+      for(const it of items){
+        const target = document.querySelector(`.list[data-section="${it.type}"]`);
+        if(!target) continue;
+
+        const div = document.createElement("div");
+        div.className = "item";
+
+        const title = document.createElement("div");
+        title.innerHTML = `<strong>${it.title}</strong>`;
+        div.appendChild(title);
+
+        const authors = document.createElement("div");
+        authors.style.marginTop = "6px";
+        authors.textContent = it.authors || "";
+        div.appendChild(authors);
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.innerHTML = `
+          <span class="badge">${it.year || ""}</span>
+          <span>${it.venue || ""}</span>
+          ${it.extra ? `<span>• ${it.extra}</span>` : ""}
+        `;
+        div.appendChild(meta);
+
+        if(it.keywords && it.keywords.length){
+          const kw = document.createElement("div");
+          kw.className = "meta";
+          kw.textContent = "Keywords: " + it.keywords.join(", ");
+          div.appendChild(kw);
+        }
+
+        if(it.links && it.links.length){
+          const links = document.createElement("div");
+          links.className = "links";
+          it.links.forEach(l=>{
+            const a = document.createElement("a");
+            a.href = l.url;
+            a.target = "_blank";
+            a.rel = "noreferrer";
+            a.textContent = l.label;
+            links.appendChild(a);
+          });
+          div.appendChild(links);
+        }
+
+        target.appendChild(div);
+      }
+
+      // Update counts
+      const total = items.length;
+      const papers = items.filter(x=>x.type==="paper").length;
+      const chapters = items.filter(x=>x.type==="chapter").length;
+      const posters = items.filter(x=>x.type==="poster").length;
+      elCount.textContent = `${total} items • ${papers} pubs • ${chapters} chapters • ${posters} posters`;
+
+      // Empty-state hints
+      document.querySelectorAll(".list").forEach(div=>{
+        if(div.children.length === 0){
+          const empty = document.createElement("div");
+          empty.className = "item";
+          empty.style.color = "var(--muted)";
+          empty.textContent = "No items to display (check filters/search, or add entries in the DATA array).";
+          div.appendChild(empty);
+        }
+      });
+
+      // Footer date
+      document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
+    }
+
+    elQ.addEventListener("input", render);
+    elType.addEventListener("change", render);
+    elSort.addEventListener("change", render);
+    elClear.addEventListener("click", ()=>{
+      elQ.value = "";
+      elType.value = "all";
+      elSort.value = "year_desc";
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
