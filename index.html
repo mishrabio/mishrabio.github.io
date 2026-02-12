@@ -426,10 +426,10 @@ function render(){
     div.className = "item";
 
     const linksHtml = (it.links && it.links.length)
-      ? `<div class="links">${
-          it.links.map(l => `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`).join("")
-        }</div>`
-      : `<div class="muted" style="margin-top:8px; font-size:13px">Links: add DOI/PubMed/Publisher/Abstract when available.</div>`;
+  ? `<div class="links">${
+      it.links.map(l => `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`).join("")
+    }</div>`
+  : ``;
 
     div.innerHTML = `
       <div class="title">${it.title}</div>
