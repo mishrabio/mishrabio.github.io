@@ -3,349 +3,497 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Publications, book chapters, and poster presentations" />
-  <title>Dr. Manish Mishra — Publications</title>
+  <title>Research Outputs — Dr. Manish Mishra</title>
+  <meta name="description" content="Publications, book chapters, abstracts, and poster presentations." />
   <style>
     :root{
-      --bg:#0b1220; --card:#111a2b; --muted:#9fb0d0; --text:#e9f0ff;
-      --accent:#7aa7ff; --accent2:#7dffda; --border:rgba(255,255,255,.08);
+      --bg:#0b1220; --card:#0f1728; --card2:#111a2b;
+      --text:#e9f0ff; --muted:#a7b7d6; --border:rgba(255,255,255,.10);
+      --accent:#7aa7ff; --accent2:#7dffda;
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-      color:var(--text); background:radial-gradient(1200px 700px at 20% 0%, rgba(122,167,255,.25), transparent 60%),
-                         radial-gradient(1000px 650px at 90% 10%, rgba(125,255,218,.18), transparent 55%),
-                         var(--bg);
+      margin:0;
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(122,167,255,.22), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(125,255,218,.14), transparent 55%),
+        var(--bg);
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:42px 18px 64px}
     header{
-      padding:52px 20px 28px; max-width:1040px; margin:0 auto;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:18px 18px;
     }
-    .topbar{
-      display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
-    }
-    .title h1{margin:0; font-size:28px; letter-spacing:.2px}
-    .title p{margin:8px 0 0; color:var(--muted); max-width:70ch}
+    .top{display:flex; gap:14px; justify-content:space-between; flex-wrap:wrap; align-items:flex-start}
+    h1{margin:0; font-size:22px; letter-spacing:.2px}
+    .sub{margin:8px 0 0; color:var(--muted); max-width:82ch}
     .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .chip{
-      border:1px solid var(--border); background:rgba(255,255,255,.03);
-      color:var(--text); padding:8px 10px; border-radius:999px; font-size:13px;
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+      font-size:13px; color:var(--muted);
     }
-    .chip strong{color:var(--accent2)}
-    main{max-width:1040px; margin:0 auto; padding:0 20px 60px}
+    .chip strong{color:var(--accent2); font-weight:700}
+    .chip a{color:var(--text)}
     .controls{
-      display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
-      padding:14px; border:1px solid var(--border); background:rgba(255,255,255,.03);
-      border-radius:16px; margin:18px 0 18px;
+      margin:14px 0 18px;
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:12px;
     }
-    .controls .left{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
-    input[type="search"]{
-      width:min(520px, 92vw);
-      padding:10px 12px; border-radius:12px;
-      border:1px solid var(--border); background:rgba(0,0,0,.25); color:var(--text);
-      outline:none;
+    .controls .left{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    input[type="search"], select, button{
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
     }
-    select, button{
-      padding:10px 12px; border-radius:12px;
-      border:1px solid var(--border); background:rgba(0,0,0,.25); color:var(--text);
-    }
+    input[type="search"]{width:min(560px, 92vw)}
     button{cursor:pointer}
     button:hover{border-color:rgba(122,167,255,.55)}
-    .grid{
-      display:grid; gap:14px;
-      grid-template-columns:1fr;
-    }
-    @media (min-width: 880px){
-      .grid{grid-template-columns: 1fr 1fr;}
-    }
+    .count{color:var(--muted); font-size:13px}
+    .grid{display:grid; gap:14px}
     section{
-      border:1px solid var(--border); background:rgba(255,255,255,.03);
-      border-radius:18px; padding:18px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:16px;
     }
-    section h2{margin:0 0 8px; font-size:18px}
-    section p.note{margin:0 0 12px; color:var(--muted); font-size:14px}
+    section h2{margin:0 0 6px; font-size:16px}
+    .note{margin:0 0 10px; color:var(--muted); font-size:13px}
     .item{
-      padding:12px 12px; border:1px solid var(--border);
-      border-radius:14px; background:rgba(0,0,0,.18);
       margin:10px 0;
+      padding:12px 12px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.16);
+      border-radius:14px;
     }
-    .item:last-child{margin-bottom:0}
-    .meta{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-      color:var(--muted); font-size:13px; margin-top:6px;
+    .title{font-weight:750}
+    .authors{margin-top:6px}
+    .meta{margin-top:6px; color:var(--muted); font-size:13px; display:flex; gap:10px; flex-wrap:wrap}
+    .tag{
+      font-size:12px; color:var(--text);
+      border:1px solid var(--border);
+      padding:3px 8px; border-radius:999px;
+      background:rgba(122,167,255,.12);
     }
-    .badge{
-      font-size:12px; padding:4px 8px; border-radius:999px;
-      background:rgba(122,167,255,.12); border:1px solid rgba(122,167,255,.28);
+    .links{margin-top:8px; display:flex; gap:10px; flex-wrap:wrap}
+    .links a{
+      font-size:13px;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:rgba(255,255,255,.03);
       color:var(--text);
     }
-    .links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
-    .links a{
-      font-size:13px; padding:6px 10px; border-radius:12px;
-      border:1px solid var(--border); background:rgba(255,255,255,.03);
-    }
     .links a:hover{border-color:rgba(125,255,218,.55)}
+    .muted{color:var(--muted)}
     footer{
-      max-width:1040px; margin:0 auto; padding:18px 20px 40px; color:var(--muted);
-      border-top:1px solid var(--border);
+      margin-top:20px; color:var(--muted); font-size:13px;
+      border-top:1px solid var(--border); padding-top:14px;
     }
     .small{font-size:13px}
-    .count{color:var(--muted); font-size:13px}
   </style>
 </head>
-<body>
-  <header>
-    <div class="topbar">
-      <div class="title">
-        <h1>Dr. Manish Mishra</h1>
-        <p>
-          Publications, book chapters, and poster presentations.
-          (Replace this line with your short research summary—1–2 sentences.)
-        </p>
 
-        <div class="chips">
-          <span class="chip"><strong>Google Scholar</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
-          <span class="chip"><strong>ORCID</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
-          <span class="chip"><strong>Email</strong>: <a href="mailto:your.email@example.com">your.email@example.com</a></span>
-          <span class="chip"><strong>CV</strong>: <a href="#" target="_blank" rel="noreferrer">PDF</a></span>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div>
+          <h1>Research Outputs — Dr. Manish Mishra</h1>
+          <p class="sub">
+            Industry-friendly list of peer-reviewed publications, book chapters, abstracts, and poster presentations.
+            (Concise entries + optional DOI/PubMed links.)
+          </p>
+          <div class="chips">
+            <span class="chip"><strong>Email</strong>: <a href="mailto:your.email@example.com">your.email@example.com</a></span>
+            <span class="chip"><strong>LinkedIn</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+            <span class="chip"><strong>Google Scholar</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+            <span class="chip"><strong>ORCID</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+            <span class="chip"><strong>CV PDF</strong>: <a href="#" target="_blank" rel="noreferrer">add link</a></span>
+          </div>
         </div>
+        <div class="count" id="count"></div>
       </div>
-      <div class="count" id="resultCount"></div>
-    </div>
+    </header>
 
     <div class="controls">
       <div class="left">
-        <input id="q" type="search" placeholder="Search title, authors, journal, conference, keywords…" />
+        <input id="q" type="search" placeholder="Search title, authors, journal/conference, keywords…" />
         <select id="type">
-          <option value="all">All types</option>
-          <option value="paper">Publications</option>
+          <option value="all">All</option>
+          <option value="pub">Publications</option>
           <option value="chapter">Book chapters</option>
+          <option value="abstract">Abstracts</option>
           <option value="poster">Posters</option>
         </select>
         <select id="sort">
-          <option value="year_desc">Sort: Year (new → old)</option>
-          <option value="year_asc">Sort: Year (old → new)</option>
-          <option value="title_asc">Sort: Title (A → Z)</option>
+          <option value="year_desc">Year (new → old)</option>
+          <option value="year_asc">Year (old → new)</option>
+          <option value="title_asc">Title (A → Z)</option>
         </select>
-      </div>
-      <div class="right">
         <button id="clear">Clear</button>
       </div>
+      <div class="left">
+        <button id="copy">Copy visible citations</button>
+      </div>
     </div>
-  </header>
 
-  <main>
     <div class="grid">
       <section>
         <h2>Publications</h2>
-        <p class="note">Peer-reviewed articles, preprints, and invited papers.</p>
-        <div class="list" data-section="paper"></div>
+        <p class="note">Peer-reviewed articles, reviews, editorials.</p>
+        <div class="list" data-section="pub"></div>
       </section>
 
       <section>
         <h2>Book Chapters</h2>
-        <p class="note">Chapters in edited volumes and handbooks.</p>
+        <p class="note">Chapters in edited volumes/handbooks.</p>
         <div class="list" data-section="chapter"></div>
       </section>
 
-      <section style="grid-column: 1 / -1;">
+      <section>
+        <h2>Abstracts</h2>
+        <p class="note">Conference abstracts and proceedings (add links where available).</p>
+        <div class="list" data-section="abstract"></div>
+      </section>
+
+      <section>
         <h2>Poster Presentations</h2>
-        <p class="note">Conference posters and abstracts.</p>
+        <p class="note">Poster titles + conference; link to abstract or poster PDF only if permitted.</p>
         <div class="list" data-section="poster"></div>
       </section>
     </div>
-  </main>
 
-  <footer>
-    <div class="small">
-      Last updated: <span id="lastUpdated"></span> •
-      Tip: keep this page concise—link out to DOI/PubMed/Publisher, and optionally a PDF when permitted.
-    </div>
-  </footer>
+    <footer>
+      <div class="small">
+        Last updated: <span id="updated"></span> • Tip: for industry roles, keep this page scannable—Title • Venue • Year • (DOI/PubMed).
+      </div>
+    </footer>
+  </div>
 
-  <script>
-    // ========= EDIT YOUR CONTENT HERE =========
-    // Add items to the DATA array. Keep "type" as: paper | chapter | poster
-    const DATA = [
-      // --- Publications (examples) ---
-      {
-        type: "paper",
-        year: 2025,
-        title: "Example publication title goes here",
-        authors: "Mishra M., Coauthor A., Coauthor B.",
-        venue: "Journal Name",
-        extra: "Vol 12(3):123–134",
-        keywords: ["immunology", "cell culture"],
-        links: [
-          { label: "DOI", url: "https://doi.org/xxxx" },
-          { label: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/xxxx" }
-        ]
-      },
+<script>
+/**
+ * Notes:
+ * - I did NOT add DOIs/PubMed links because they were not included in your file.
+ * - Add them by inserting link objects in the "links" arrays below.
+ *   Example: links:[{label:"DOI", url:"https://doi.org/..."},{label:"PubMed", url:"https://pubmed.ncbi.nlm.nih.gov/..."}]
+ */
+const DATA = [
+  // ===================== PUBLICATIONS =====================
+  {type:"pub", year:2025, title:"Angiotensin II promotes ventricular fibrosis and systolic dysfunction more in aging male mice than in females",
+   authors:"Khuong N; Mishra M*; Banga S; Howlett SE.",
+   venue:"GeroScience", extra:"7 Nov 2025 (First co-author).", keywords:["aging","angiotensin II","fibrosis","sex differences"], links:[]},
 
-      // --- Book chapters (examples) ---
-      {
-        type: "chapter",
-        year: 2023,
-        title: "Example book chapter title",
-        authors: "Mishra M.",
-        venue: "In: Handbook of Something (Ed. X. Y.)",
-        extra: "Publisher, City",
-        keywords: ["molecular biology"],
-        links: [
-          { label: "Publisher", url: "https://example.com" }
-        ]
-      },
+  {type:"pub", year:2024, title:"The Intersection of Frailty and Metabolism",
+   authors:"Mishra M; Wu J; Kane AE; Howlett SE.",
+   venue:"Cell Metabolism", extra:"2024 May 7;36(5):893–911.", keywords:["frailty","metabolism","aging"], links:[]},
 
-      // --- Posters (examples) ---
-      {
-        type: "poster",
-        year: 2022,
-        title: "Example poster: a new screening concept for X",
-        authors: "Mishra M., Coauthor C.",
-        venue: "Conference Name, Location",
-        extra: "Poster #P-123 (Abstract)",
-        keywords: ["screening", "biochemistry"],
-        links: [
-          { label: "Abstract", url: "https://example.com/abstract" }
-          // Add PDF link only if you have rights to share it
-          // { label: "Poster PDF", url: "https://example.com/poster.pdf" }
-        ]
-      }
-    ];
-    // =========================================
+  {type:"pub", year:2023, title:"Chronic testosterone deficiency increases late inward sodium current and promotes triggered activity in ventricular myocytes from aging male mice",
+   authors:"Banga S; Mishra M; Heinze-Milne S; Hailey J; Jansen; Robert A Rose; Howlett SE.",
+   venue:"American Journal of Physiology — Heart and Circulatory Physiology",
+   extra:"325:H264–H277 (2023).", keywords:["testosterone","sodium current","ventricular myocytes","aging"], links:[]},
 
-    const elQ = document.getElementById("q");
-    const elType = document.getElementById("type");
-    const elSort = document.getElementById("sort");
-    const elClear = document.getElementById("clear");
-    const elCount = document.getElementById("resultCount");
+  {type:"pub", year:2023, title:"Reference Genes in Aging Tissues: What are you referring to?",
+   authors:"Mishra M; Howlett SE.",
+   venue:"Aging (Editorial)", extra:"2023, Vol. 15 (Advance).", keywords:["reference genes","aging","editorial"], links:[]},
 
-    function normalize(s){ return (s||"").toString().toLowerCase(); }
+  {type:"pub", year:2022, title:"Age, sex, and frailty modify the expression of common reference genes in skeletal muscle from ageing mice",
+   authors:"Mishra M; Kane AE; Young AP; Howlett SE.",
+   venue:"Mechanisms of Ageing and Development", extra:"2022 Dec 9;210:111762.", keywords:["skeletal muscle","reference genes","frailty"], links:[]},
 
-    function scoreMatch(item, q){
-      if(!q) return 1;
-      const hay = normalize([
-        item.title, item.authors, item.venue, item.extra, (item.keywords||[]).join(" ")
-      ].join(" "));
-      let score = 0;
-      q.split(/\s+/).filter(Boolean).forEach(tok=>{
-        if(hay.includes(tok)) score += 1;
-      });
-      return score;
+  {type:"pub", year:2022, title:"Mechanism of Hypercholesterolemia-Induced Atherosclerosis",
+   authors:"Prasad K; Mishra M.",
+   venue:"Reviews in Cardiovascular Medicine", extra:"2022;23(6):212.", keywords:["atherosclerosis","hypercholesterolemia"], links:[]},
+
+  {type:"pub", year:2021, title:"Preclinical models of frailty: focus on interventions and their translational impact",
+   authors:"Mishra M; Howlett SE.",
+   venue:"Nutrition and Healthy Aging", extra:"2021;6(1):17–33.", keywords:["frailty","preclinical models","translation"], links:[]},
+
+  {type:"pub", year:2020, title:"Gender-specific changes in energy metabolism and protein degradation as major pathways affected in livers of mice treated with ibuprofen",
+   authors:"Tiwari S; Mishra M; Salemi MR; Phinney BS; Newens JL; Gomes AV.",
+   venue:"Scientific Reports", extra:"2020 Feb 25;10(1):3386.", keywords:["ibuprofen","liver","metabolism","protein degradation"], links:[]},
+
+  {type:"pub", year:2019, title:"Improving the sensitivity of traditional Western blotting via streptavidin containing poly horseradish peroxidase (PolyHRP)",
+   authors:"Mishra M; Tiwari S; Gunaseelan A; Li D; Hammock BD; Gomes AV.",
+   venue:"Electrophoresis", extra:"2019 Apr 25.", keywords:["western blot","PolyHRP","sensitivity"], links:[]},
+
+  {type:"pub", year:2018, title:"AGE-RAGE stress, stressors, and anti-stressors in health and disease",
+   authors:"Prasad K; Mishra M.",
+   venue:"International Journal of Angiology", extra:"2018 Mar;27(1):1–12.", keywords:["AGE-RAGE","stress"], links:[]},
+
+  {type:"pub", year:2017, title:"Protein purification and analysis: next generation Western blotting techniques",
+   authors:"Mishra M; Tiwari S; Gomes AV.",
+   venue:"Expert Review of Proteomics", extra:"2017 Nov;14(11):1037–1053.", keywords:["western blot","proteomics"], links:[]},
+
+  {type:"pub", year:2017, title:"Do advanced glycation-end products and its receptor play a role in pathophysiology of hypertension?",
+   authors:"Prasad K; Mishra M.",
+   venue:"International Journal of Angiology", extra:"2017 Mar;26(1):1–11.", keywords:["hypertension","AGE"], links:[]},
+
+  {type:"pub", year:2014, title:"A critical and comprehensive insight on heme oxygenase and related products including carbon monoxide, bilirubin, biliverdin and ferritin in type-1 and type-2 diabetes",
+   authors:"Mishra M; Ndisang JF.",
+   venue:"Current Pharmaceutical Design", extra:"2014;20(9):1370–1391.", keywords:["heme oxygenase","diabetes"], links:[]},
+
+  {type:"pub", year:2014, title:"The heme oxygenase system suppresses perirenal visceral adiposity, abates renal inflammation and ameliorates diabetic nephropathy in Zucker diabetic fatty rats",
+   authors:"Ndisang JF; Jadhav A; Mishra M.",
+   venue:"PLoS ONE", extra:"2014 Jan 30;9(1):e87936.", keywords:["heme oxygenase","nephropathy"], links:[]},
+
+  {type:"pub", year:2013, title:"The heme oxygenase system selectively suppresses the proinflammatory macrophage M1 phenotype and potentiates insulin signaling in spontaneously hypertensive rats",
+   authors:"Ndisang JF; Mishra M.",
+   venue:"American Journal of Hypertension", extra:"2013 Sep;26(9):1123–1131.", keywords:["macrophage","insulin signaling","hypertension"], links:[]},
+
+  {type:"pub", year:2013, title:"The risk of heart failure and cardiometabolic complications in obesity may be masked by an apparent healthy status of normal blood glucose",
+   authors:"Tiwari S; Mishra M; Jadhav A; Gerger C; Lee P; Weber L; Ndisang JF.",
+   venue:"Oxidative Medicine and Cellular Longevity", extra:"2013;2013:253657.", keywords:["obesity","cardiometabolic"], links:[]},
+
+  {type:"pub", year:2013, title:"The heme oxygenase system rescues hepatic deterioration in the condition of obesity co-morbid with type-2 diabetes",
+   authors:"Salley TN; Mishra M; Tiwari S; Jadhav A; Ndisang JF.",
+   venue:"PLoS ONE", extra:"2013 Nov 15;8(11):e79270.", keywords:["liver","obesity","type 2 diabetes"], links:[]},
+
+  {type:"pub", year:2011, title:"Intensive resistance exercise induces lymphocyte apoptosis via cortisol and glucocorticoid receptor-dependent pathways",
+   authors:"Krüger K; Agnischock S; Lechtermann A; Tiwari S; Mishra M; Pilat C; Wagner A; Tweddell C; Gramlich I; Mooren FC.",
+   venue:"Journal of Applied Physiology", extra:"2011 May;110(5):1226–1232.", keywords:["exercise","lymphocyte apoptosis","cortisol"], links:[]},
+
+  {type:"pub", year:2009, title:"Microsatellite markers of water buffalo (Bubalus bubalis): development, characterization, and linkage disequilibrium studies",
+   authors:"Nagarajan M; Kumar N; Nishanth G; Haribaskar R; Paranthaman K; Gupta J; Mishra M; Vaidhegi R; Kumar S; Ranjan AK; Kumar S.",
+   venue:"BMC Genetics", extra:"2009 Oct 21;10:68.", keywords:["genetics","microsatellite","buffalo"], links:[]},
+
+  // ===================== BOOK CHAPTERS =====================
+  {type:"chapter", year:2024, title:"Preclinical Models of Frailty",
+   authors:"Mishra M; Howlett SE.",
+   venue:"Frailty — A Multidisciplinary Approach to Assessment, Management, and Prevention (Springer)",
+   extra:"Ed. Jorge G. Ruiz, Olga Theou. ISBN: 9783031573606.", keywords:["frailty","models"], links:[]},
+
+  {type:"chapter", year:2023, title:"Frailty Indices",
+   authors:"Mishra M; Ribeiro AR; Howlett SE.",
+   venue:"Studying Ageing and Disease in Laboratory Mice: A Handbook (Elsevier)",
+   extra:"Ed. Paul K. Potter, Ilaria Bellantuono. ISBN: 9780128240182.", keywords:["frailty index","mouse"], links:[]},
+
+  {type:"chapter", year:2018, title:"Ubiquitin — Latest research and new direction",
+   authors:"Mishra M; Gomes AV.",
+   venue:"Ubiquitin Proteasome System: A Review and Directions for Research (Nova Science Publishers)",
+   extra:"ISBN: 9781536135183.", keywords:["ubiquitin","proteasome"], links:[]},
+
+  // ===================== ABSTRACTS =====================
+  {type:"abstract", year:2024, title:"Chronic angiotensin II infusion promotes sex-specific ventricular remodeling in aged mouse hearts",
+   authors:"Mishra M; Khuong N; Banga S; Howlett SE.",
+   venue:"XLIII ISHR-NAS 2024 Meeting, Long Beach, USA", extra:"Aug 19–24, 2024.", keywords:["angiotensin II","remodeling"], links:[]},
+
+  {type:"abstract", year:2023, title:"Chronic Infusion of Angiotensin II Promotes Ventricular Fibrosis and Diastolic Dysfunction in Aging Male but Not Female Mouse Hearts",
+   authors:"Mishra M; Khuong N; Banga S; Howlett SE.",
+   venue:"Circulation Research", extra:"Vol 133, Suppl_1; Oct 13, 2023. (Abstract P3124).", keywords:["fibrosis","diastolic dysfunction"], links:[]},
+
+  {type:"abstract", year:2022, title:"Enalapril reduces frailty and increases MAPK expression in heart and muscle in aging male mice, even when drug is deprescribed",
+   authors:"Mishra M; Kane AE; Howlett SE.",
+   venue:"41st North American Meeting of ISHR & 9th International Academy of Cardiovascular Sciences, Winnipeg, Canada",
+   extra:"Sep 6–9, 2022.", keywords:["enalapril","frailty","MAPK"], links:[]},
+
+  {type:"abstract", year:2022, title:"Impact of age and sex on the expression of common reference genes in ventricular muscle from aging C57BL/6 mice",
+   authors:"Mishra M; Howlett SE.",
+   venue:"41st North American Meeting of ISHR & 9th International Academy of Cardiovascular Sciences, Winnipeg, Canada",
+   extra:"Sep 6–9, 2022.", keywords:["reference genes","ventricle"], links:[]},
+
+  {type:"abstract", year:2018, title:"Improving Western blotting sensitivity for detection of intracellular changes caused by xenobiotics",
+   authors:"Tiwari S; Mishra M; Gunaseelan A; Li D; Hammock BD; Gomes AV.",
+   venue:"Superfund Research Program Annual Meeting, Sacramento, USA",
+   extra:"Nov 28–30, 2018.", keywords:["western blot","xenobiotics"], links:[]},
+
+  {type:"abstract", year:2016, title:"Upregulating heme oxygenase system potentiates pancreatic repair by enhancing proteins of regeneration",
+   authors:"Manish M; Ndisang JF.",
+   venue:"FASEB Journal", extra:"April 2016.", keywords:["heme oxygenase","pancreas"], links:[]},
+
+  {type:"abstract", year:2015, title:"Heme oxygenase and pancreatic regeneration",
+   authors:"Mishra M; Ndisang JF.",
+   venue:"Canadian Hypertension Congress, Toronto", extra:"Oct 22–24, 2015.", keywords:["heme oxygenase","regeneration"], links:[]},
+
+  {type:"abstract", year:2013, title:"Heme oxygenase selectively attenuates pro-inflammatory pathways and potentiate insulin-signaling in spontaneously hypertensive rats",
+   authors:"Ndisang JF; Mishra M.",
+   venue:"Canadian Hypertension Congress, Montreal", extra:"Oct 17–19, 2013.", keywords:["inflammation","insulin signaling"], links:[]},
+
+  {type:"abstract", year:2012, title:"The heme oxygenase system suppresses macrophage infiltration and potentiates insulin signaling in spontaneously hypertensive rats",
+   authors:"Ndisang JF; Mishra M.",
+   venue:"11th Annual World Congress on Insulin Resistance, Diabetes & Cardiovascular Disease",
+   extra:"Nov 7–9, 2012.", keywords:["macrophage","insulin signaling"], links:[]},
+
+  {type:"abstract", year:2010, title:"Effects of long time voluntary free wheel running exercise training on apoptosis and cell proliferation of splenic lymphocytes in aging mice",
+   authors:"Mishra M; Tiwari S; Krüger K; Mooren FC.",
+   venue:"3rd annual conference of GGL, Dept. of Sports Medicine, Justus-Liebig-University, Giessen, Germany",
+   extra:"Sep 29–30, 2010.", keywords:["exercise","apoptosis"], links:[]},
+
+  {type:"abstract", year:2010, title:"Effects of a single bout of exercise on murine bronchoalveolar macrophages activation, differentiation, and apoptosis",
+   authors:"Tiwari S; Mishra M; Krüger K; Mooren FC.",
+   venue:"3rd annual conference of GGL, Dept. of Sports Medicine, Justus-Liebig-University, Giessen, Germany",
+   extra:"Sep 29–30, 2010.", keywords:["macrophages","exercise"], links:[]},
+
+  // ===================== POSTERS =====================
+  {type:"poster", year:2024, title:"Chronic angiotensin II infusion promotes sex-specific ventricular remodeling in aged mouse hearts",
+   authors:"Mishra M; Khuong N; Banga S; Howlett SE.",
+   venue:"43rd ISHR-NAS 2024 Meeting, Long Beach, USA", extra:"Aug 19–24, 2024.", keywords:["remodeling","angiotensin II"], links:[]},
+
+  {type:"poster", year:2023, title:"Chronic infusion of angiotensin II promotes ventricular fibrosis and diastolic dysfunction in ageing male but not female mouse hearts",
+   authors:"Mishra M; Khuong N; Banga S; Howlett SE.",
+   venue:"Basic Cardiovascular Sciences Meeting 2023, Boston, MA, USA", extra:"Jul 31–Aug 3, 2023.", keywords:["fibrosis","diastolic dysfunction"], links:[]},
+
+  {type:"poster", year:2022, title:"Enalapril reduces frailty and increases MAPK expression in heart and muscle in aging male mice, even when drug is deprescribed",
+   authors:"Mishra M; Kane AE; Howlett SE.",
+   venue:"41st ISHR-NAS Meeting, Winnipeg, Canada", extra:"Sep 6–9, 2022.", keywords:["enalapril","MAPK","frailty"], links:[]},
+
+  {type:"poster", year:2022, title:"Impact of age and sex on the expression of common reference genes in ventricular muscle from aging C57BL/6 mice",
+   authors:"Mishra M; Howlett SE.",
+   venue:"41st ISHR-NAS Meeting, Winnipeg, Canada", extra:"Sep 6–9, 2022.", keywords:["reference genes","ventricle"], links:[]},
+
+  {type:"poster", year:2016, title:"Up-regulating Heme Oxygenase System Potentiates pancreatic repair by enhancing proteins of regeneration",
+   authors:"Mishra M; Ndisang JF.",
+   venue:"Experimental Biology Conference, San Diego, USA", extra:"April 2016.", keywords:["heme oxygenase","pancreas"], links:[]},
+
+  {type:"poster", year:2015, title:"Heme oxygenase and pancreatic regeneration",
+   authors:"Mishra M; Ndisang JF.",
+   venue:"Canadian Hypertension Congress, Toronto", extra:"Oct 22–24, 2015.", keywords:["regeneration"], links:[]},
+
+  {type:"poster", year:2013, title:"Heme oxygenase selectively attenuates pro-inflammatory pathways and potentiates insulin-signaling in spontaneously hypertensive rats",
+   authors:"Mishra M.",
+   venue:"Canadian Hypertension Congress, Montreal", extra:"Oct 17–19, 2013 (Oral Presentation).", keywords:["insulin signaling","inflammation"], links:[]},
+];
+
+// ------------------- UI logic -------------------
+const elQ = document.getElementById("q");
+const elType = document.getElementById("type");
+const elSort = document.getElementById("sort");
+const elClear = document.getElementById("clear");
+const elCount = document.getElementById("count");
+const elCopy = document.getElementById("copy");
+
+const norm = s => (s||"").toString().toLowerCase();
+
+function score(item, q){
+  if(!q) return 1;
+  const hay = norm([
+    item.title, item.authors, item.venue, item.extra, (item.keywords||[]).join(" ")
+  ].join(" "));
+  let sc = 0;
+  q.split(/\s+/).filter(Boolean).forEach(tok => { if(hay.includes(tok)) sc++; });
+  return sc;
+}
+
+function sortItems(arr, mode){
+  const a = [...arr];
+  if(mode==="year_desc") a.sort((x,y)=>(y.year||0)-(x.year||0));
+  if(mode==="year_asc") a.sort((x,y)=>(x.year||0)-(y.year||0));
+  if(mode==="title_asc") a.sort((x,y)=>(x.title||"").localeCompare(y.title||""));
+  return a;
+}
+
+function render(){
+  const q = norm(elQ.value.trim());
+  const type = elType.value;
+  const mode = elSort.value;
+
+  let items = DATA
+    .filter(it => type==="all" ? true : it.type===type)
+    .map(it => ({...it, _s: score(it,q)}))
+    .filter(it => it._s > 0);
+
+  items = sortItems(items, mode);
+  if(q) items.sort((a,b)=> (b._s-a._s) || ((b.year||0)-(a.year||0)));
+
+  document.querySelectorAll(".list").forEach(d=>d.innerHTML="");
+
+  for(const it of items){
+    const target = document.querySelector(`.list[data-section="${it.type}"]`);
+    if(!target) continue;
+
+    const div = document.createElement("div");
+    div.className = "item";
+
+    const linksHtml = (it.links && it.links.length)
+      ? `<div class="links">${
+          it.links.map(l => `<a href="${l.url}" target="_blank" rel="noreferrer">${l.label}</a>`).join("")
+        }</div>`
+      : `<div class="muted" style="margin-top:8px; font-size:13px">Links: add DOI/PubMed/Publisher/Abstract when available.</div>`;
+
+    div.innerHTML = `
+      <div class="title">${it.title}</div>
+      <div class="authors">${it.authors || ""}</div>
+      <div class="meta">
+        <span class="tag">${it.year || ""}</span>
+        <span>${it.venue || ""}</span>
+        ${it.extra ? `<span>• ${it.extra}</span>` : ""}
+      </div>
+      ${(it.keywords && it.keywords.length) ? `<div class="meta">Keywords: ${it.keywords.join(", ")}</div>` : ""}
+      ${linksHtml}
+    `;
+    target.appendChild(div);
+  }
+
+  // Empty-state hints
+  document.querySelectorAll(".list").forEach(div=>{
+    if(div.children.length === 0){
+      const empty = document.createElement("div");
+      empty.className = "item";
+      empty.style.color = "var(--muted)";
+      empty.textContent = "No items match your search/filter.";
+      div.appendChild(empty);
     }
+  });
 
-    function sortItems(items, mode){
-      const copy = [...items];
-      if(mode === "year_desc") copy.sort((a,b)=>(b.year||0)-(a.year||0));
-      if(mode === "year_asc") copy.sort((a,b)=>(a.year||0)-(b.year||0));
-      if(mode === "title_asc") copy.sort((a,b)=> (a.title||"").localeCompare(b.title||""));
-      return copy;
-    }
+  const counts = {
+    pub: items.filter(x=>x.type==="pub").length,
+    chapter: items.filter(x=>x.type==="chapter").length,
+    abstract: items.filter(x=>x.type==="abstract").length,
+    poster: items.filter(x=>x.type==="poster").length
+  };
+  elCount.textContent = `${items.length} visible • ${counts.pub} pubs • ${counts.chapter} chapters • ${counts.abstract} abstracts • ${counts.poster} posters`;
 
-    function render(){
-      const q = normalize(elQ.value.trim());
-      const typeFilter = elType.value;
-      const sortMode = elSort.value;
+  document.getElementById("updated").textContent = new Date().toLocaleDateString();
+}
 
-      // Filter + rank
-      let items = DATA
-        .filter(it => (typeFilter === "all" ? true : it.type === typeFilter))
-        .map(it => ({...it, _score: scoreMatch(it, q)}))
-        .filter(it => it._score > 0);
+function visibleCitationsText(){
+  const q = norm(elQ.value.trim());
+  const type = elType.value;
 
-      // Sort with stable ranking: higher score first when searching
-      items = sortItems(items, sortMode);
-      if(q){
-        items.sort((a,b)=> (b._score - a._score) || ((b.year||0)-(a.year||0)));
-      }
+  const items = DATA
+    .filter(it => type==="all" ? true : it.type===type)
+    .map(it => ({...it, _s: score(it,q)}))
+    .filter(it => it._s > 0)
+    .sort((a,b)=> (b.year||0)-(a.year||0));
 
-      // Clear sections
-      document.querySelectorAll(".list").forEach(div => div.innerHTML = "");
+  return items.map(it => {
+    const year = it.year ? `${it.year}. ` : "";
+    const extra = it.extra ? ` ${it.extra}` : "";
+    return `${it.authors} ${year}${it.title}. ${it.venue}.${extra}`.replace(/\s+/g," ").trim();
+  }).join("\n\n");
+}
 
-      // Render into appropriate section lists
-      for(const it of items){
-        const target = document.querySelector(`.list[data-section="${it.type}"]`);
-        if(!target) continue;
+elQ.addEventListener("input", render);
+elType.addEventListener("change", render);
+elSort.addEventListener("change", render);
+elClear.addEventListener("click", ()=>{ elQ.value=""; elType.value="all"; elSort.value="year_desc"; render(); });
 
-        const div = document.createElement("div");
-        div.className = "item";
+elCopy.addEventListener("click", async ()=>{
+  const text = visibleCitationsText();
+  try{
+    await navigator.clipboard.writeText(text);
+    elCopy.textContent = "Copied!";
+    setTimeout(()=> elCopy.textContent="Copy visible citations", 1200);
+  }catch(e){
+    alert("Copy failed in this browser. You can still select and copy manually.");
+  }
+});
 
-        const title = document.createElement("div");
-        title.innerHTML = `<strong>${it.title}</strong>`;
-        div.appendChild(title);
-
-        const authors = document.createElement("div");
-        authors.style.marginTop = "6px";
-        authors.textContent = it.authors || "";
-        div.appendChild(authors);
-
-        const meta = document.createElement("div");
-        meta.className = "meta";
-        meta.innerHTML = `
-          <span class="badge">${it.year || ""}</span>
-          <span>${it.venue || ""}</span>
-          ${it.extra ? `<span>• ${it.extra}</span>` : ""}
-        `;
-        div.appendChild(meta);
-
-        if(it.keywords && it.keywords.length){
-          const kw = document.createElement("div");
-          kw.className = "meta";
-          kw.textContent = "Keywords: " + it.keywords.join(", ");
-          div.appendChild(kw);
-        }
-
-        if(it.links && it.links.length){
-          const links = document.createElement("div");
-          links.className = "links";
-          it.links.forEach(l=>{
-            const a = document.createElement("a");
-            a.href = l.url;
-            a.target = "_blank";
-            a.rel = "noreferrer";
-            a.textContent = l.label;
-            links.appendChild(a);
-          });
-          div.appendChild(links);
-        }
-
-        target.appendChild(div);
-      }
-
-      // Update counts
-      const total = items.length;
-      const papers = items.filter(x=>x.type==="paper").length;
-      const chapters = items.filter(x=>x.type==="chapter").length;
-      const posters = items.filter(x=>x.type==="poster").length;
-      elCount.textContent = `${total} items • ${papers} pubs • ${chapters} chapters • ${posters} posters`;
-
-      // Empty-state hints
-      document.querySelectorAll(".list").forEach(div=>{
-        if(div.children.length === 0){
-          const empty = document.createElement("div");
-          empty.className = "item";
-          empty.style.color = "var(--muted)";
-          empty.textContent = "No items to display (check filters/search, or add entries in the DATA array).";
-          div.appendChild(empty);
-        }
-      });
-
-      // Footer date
-      document.getElementById("lastUpdated").textContent = new Date().toLocaleDateString();
-    }
-
-    elQ.addEventListener("input", render);
-    elType.addEventListener("change", render);
-    elSort.addEventListener("change", render);
-    elClear.addEventListener("click", ()=>{
-      elQ.value = "";
-      elType.value = "all";
-      elSort.value = "year_desc";
-      render();
-    });
-
-    render();
-  </script>
+render();
+</script>
 </body>
 </html>
